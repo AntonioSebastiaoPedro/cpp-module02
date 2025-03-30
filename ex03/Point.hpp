@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 11:48:11 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/30 13:45:42 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/30 13:51:56 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ class Point
 		Point( const float x, const float y );
 
 		Fixed getX( void ) const;
-		void setX( Fixed const x );
 		Fixed getY( void ) const;
-		void setY( Fixed const y );
 };
 
 # endif
