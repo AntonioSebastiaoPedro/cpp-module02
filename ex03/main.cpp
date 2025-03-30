@@ -6,58 +6,44 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:42:03 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/30 11:32:54 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:05:19 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
-# include "Fixed.hpp"
+# include "Point.hpp"
 
-int main()
+int	main(void)
 {
-	Fixed a(5);
-	Fixed b(2.5f);
-    
+	Point a(0, 0);
+	Point b(10, 30);
+	Point c(20, 0);
 
-	Fixed sum = a + b;
-	Fixed diff = a - b;
-	Fixed prod = a * b;
-	Fixed quot = a / b;
-    
-	std::cout << "Arithmetic Operators:" << std::endl;
-	std::cout << "5 + 2.5 = " << sum << std::endl;
-	std::cout << "5 - 2.5 = " << diff << std::endl;
-	std::cout << "5 * 2.5 = " << prod << std::endl;
-	std::cout << "5 / 2.5 = " << quot << std::endl;
-    
-	std::cout << "\nComparison Operators:" << std::endl;
-	std::cout << a << " > " << b << ": " << (a > b) << std::endl;
-	std::cout << a << " < " << b << ": " << (a < b) << std::endl;
-	std::cout << a << " >= " << b << ": " << (a >= b) << std::endl;
-	std::cout << a << " <= " << b << ": " << (a <= b) << std::endl;
-	std::cout << a << " == " << b << ": " << (a == b) << std::endl;
-	std::cout << a << " != " << b << ": " << (a != b) << std::endl;
-    
-	Fixed c(1.0f);
-	std::cout << "\nIncrement/Decrement Operators:" << std::endl;
-	std::cout << "Initial Value: " << c << std::endl;
-	std::cout << "pre-increment (++var): " << ++c << std::endl; 
-	std::cout << "post-increment (var++): " << c++ << std::endl; 
-	std::cout << "Value after post-increment: " << c << std::endl;
-	std::cout << "pre-decrement (--var): " << --c << std::endl;
-	std::cout << "post-decrement (var--): " << c-- << std::endl;
-	std::cout << "Value after post-decrement: " << c << std::endl;
-    
-	Fixed d(10);
-	Fixed e(15);
-	std::cout << "\nmin and max functions:" << std::endl;
-	std::cout << "min(" << d << "," << e << "): " << Fixed::min(d, e) << std::endl;
-	std::cout << "max(" << d << "," << e << "): " << Fixed::max(d, e) << std::endl;
-    
-	const Fixed f(20);
-	const Fixed g(5);
-	std::cout << "min(" << f << "," << g << "): " << Fixed::min(f, g) << std::endl;
-	std::cout << "max(" << f << "," << g << "): " << Fixed::max(f, g) << std::endl;
-    
+	Point inside(10, 10);
+	Point outside(30, 15);
+	Point onEdge(10, 0);
+	Point vertex(0, 0);
+
+	std::cout << "Point inside the triangle: " << (bsp(a, b, c, inside) ? "Yes" : "No") << std::endl;
+	std::cout << "Point outside the triangle: " << (bsp(a, b, c, outside) ? "Yes" : "No") << std::endl;
+	std::cout << "Point on the edge of the triangle: " << (bsp(a, b, c, onEdge) ? "Yes" : "No") << std::endl;
+	std::cout << "Point at a vertex of the triangle: " << (bsp(a, b, c, vertex) ? "Yes" : "No") << std::endl;
+
+	std::cout << "\nAdditional test cases:" << std::endl;
+
+	Point d(0, 0);
+	Point e(5, 5);
+	Point f(0, 10);
+	
+	Point p1(1, 1);
+	Point p2(2, 8);
+	Point p3(6, 6);
+	Point p4(0, 5);
+	
+	std::cout << "Point p1 inside the triangle: " << (bsp(d, e, f, p1) ? "Yes" : "No") << std::endl;
+	std::cout << "Point p2 inside the triangle: " << (bsp(d, e, f, p2) ? "Yes" : "No") << std::endl;
+	std::cout << "Point p3 outside the triangle: " << (bsp(d, e, f, p3) ? "Yes" : "No") << std::endl;
+	std::cout << "Point p4 on the edge of the triangle: " << (bsp(d, e, f, p4) ? "Yes" : "No") << std::endl;
+	
 	return 0;
 }

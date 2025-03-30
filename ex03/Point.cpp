@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 13:27:25 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/30 13:50:53 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/30 17:39:56 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Point& Point::operator=( const Point& point )
 Point::~Point( void ) {}
 
 Point::Point( const float x, const float y ) : x(x), y(y) {}
+Point::Point( const Fixed x, const Fixed y ) : x(x), y(y) {}
 
 Fixed Point::getX( void ) const
 {
@@ -32,4 +33,9 @@ Fixed Point::getX( void ) const
 Fixed Point::getY( void ) const
 {
 	return ( this->y );
+}
+
+bool Point::operator==( const Point& point ) const
+{
+	return ( this->getX() == point.getX() && this->getY() == point.getY() );
 }
