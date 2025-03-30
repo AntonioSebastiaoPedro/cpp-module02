@@ -6,7 +6,7 @@
 /*   By: ansebast <ansebast@student.42luanda.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:43:52 by ansebast          #+#    #+#             */
-/*   Updated: 2025/03/30 18:02:09 by ansebast         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:12:59 by ansebast         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool isEdge(Point const p1, Point const p2, Point const point)
 	{
 		if (
 			point.getX() >= Fixed::min(p1.getX(), p2.getX()) &&
-			point.getX() <= Fixed::max(p1.getX(), p2.getY()) &&
+			point.getX() <= Fixed::max(p1.getX(), p2.getX()) &&
 			point.getY() >= Fixed::min(p1.getY(), p2.getY()) &&
 			point.getY() <= Fixed::max(p1.getY(), p2.getY())
 		)
